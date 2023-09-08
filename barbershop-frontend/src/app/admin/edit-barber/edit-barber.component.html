@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+  <h5>Edit Barber</h5>
+  <form *ngIf="barber" (ngSubmit)="handleSubmit(editBarberForm)" #editBarberForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="barber.name"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="barber.email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        type="number"
+        class="form-control"
+        id="phoneNumber"
+        [(ngModel)]="barber.phoneNumber"
+        name="phoneNumber"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>

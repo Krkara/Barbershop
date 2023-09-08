@@ -1,0 +1,140 @@
+<br />
+<br />
+
+<div style="padding: 20px">
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-left"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            Barbers
+          </button>
+        </h2>
+      </div>
+
+      <div
+        id="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body">
+          <app-barber></app-barber>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-left collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            Date and Time
+          </button>
+        </h2>
+      </div>
+      <div
+        id="collapseTwo"
+        class="collapse"
+        aria-labelledby="headingTwo"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body">
+          <app-booking></app-booking>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link btn-block text-left collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Services
+          </button>
+        </h2>
+      </div>
+      <div
+        id="collapseThree"
+        class="collapse"
+        aria-labelledby="headingThree"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body">
+          <app-service></app-service>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <div *ngIf="selectedBarber && selectedService">
+
+    <div class="form-group">
+      <label for="email">Name</label>
+      <input
+        type="text"
+        id="customerName"
+        class="form-control active"
+        [(ngModel)]="customerName"
+      />
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="customerEmail"
+        class="form-control active"
+        [(ngModel)]="customerEmail"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Number</label>
+      <input
+        type="number"
+        id="customerNumber"
+        class="form-control active"
+        [(ngModel)]="customerNumber"
+      />
+    </div>
+    <br />
+    <button
+      type="button"
+      class="btn btn-primary btn-lg btn-block"
+      (click)="handleBooking()"
+    >
+      Book
+    </button>
+  </div>
+
+  <div class="alert-overlay" *ngIf="showSuccessAlert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Booking added successfully!
+      <button type="button" class="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>

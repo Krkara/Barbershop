@@ -1,0 +1,36 @@
+<br>
+<br>
+<div class="container" style="display: flex; flex-direction: column; align-items: center;">
+	<ngb-datepicker
+	  #dp
+	  (dateSelect)="onDateSelection($event)"
+	  [displayMonths]="3"
+	  [dayTemplate]="t"
+	  outsideDays="hidden"
+	  [markDisabled]="isDisabled"
+	>
+	</ngb-datepicker>
+  
+	<ng-template #t let-date let-focused="focused">
+	  <span
+		class="custom-day"
+		[class.focused]="focused"
+		[class.range]="isRange(date)"
+		[class.faded]="isHovered(date) || isInside(date)"
+		[class.disabled-date]="isDisabled(date)"
+		(mouseenter)="hoveredDate = date"
+		(mouseleave)="hoveredDate = null"
+	  >
+		{{ date.day }}
+	  </span>
+	</ng-template>
+	<br>
+	<button
+	  type="button"
+	  class="btn btn-primary btn-lg btn-block"
+	  (click)="handleBooking()"
+	>
+	  Save selection
+	</button>
+  </div>
+  

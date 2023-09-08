@@ -1,0 +1,26 @@
+<div style="padding: 20px">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">DateTime</th>
+      <th scope="col">Barber</th>
+      <th scope="col">Service</th>
+      <th scope="col">Customer</th>
+      <th scope="col"></th>
+      <th scope="col"><button type="button" class="btn btn-success btn-md" (click)="navigateToHomePage()">Add</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <th scope="row">{{ booking.id }}</th>
+      <th scope="row">{{ booking.dateTime }}</th>
+      <th scope="row">{{ booking.barber.name }}</th>
+      <th scope="row">{{ booking.service?.name }}</th>
+      <th scope="row">{{ booking.customerName }}</th>
+      <th scope="row"><button type="button" class="btn btn-warning btn-sm" routerLink="/edit-booking/{{booking.id}}">Edit</button></th>
+      <th scope="row"><button type="button" class="btn btn-danger btn-sm" (click)="deleteBooking(booking)">Delete</button></th>
+    </tr>
+  </tbody>
+</table>
+</div>

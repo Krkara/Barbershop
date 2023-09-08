@@ -1,0 +1,17 @@
+<div *ngFor="let service of services">
+    <div class="card mb-3" [class.active]="service.id === selectedService ?.id" (click)="service.id !== undefined && setSelectedService(service)">
+
+    <div class="row no-gutters">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ service.name }} ({{ service.duration }} min)</h5>
+          <p class="card-text">
+            <small class="text-muted">
+              <span class="price-red">{{ service.price }} €</span>
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

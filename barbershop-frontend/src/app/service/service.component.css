@@ -1,0 +1,7 @@
+.price-red {
+  color: red;
+}
+
+.card.active {
+  border: 3px solid #007bff;
+}

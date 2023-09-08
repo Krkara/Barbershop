@@ -1,0 +1,20 @@
+<br>
+<div class="container">
+    <h5>Add Service</h5>
+    <form (ngSubmit)="handleSubmit(addServiceForm)" #addServiceForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input ngModel name="name" type="text" class="form-control" id="name"  name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Price</label>
+        <input ngModel name="price" type="number" class="form-control" id="price"  name="price" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Duration</label>
+        <input ngModel name="duration" type="number" class="form-control" id="duration"  name="duration" required>
+      </div>
+      <button type="submit" class="btn btn-success">Add</button>
+    </form>
+  </div>
+  

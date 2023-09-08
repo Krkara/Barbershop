@@ -1,0 +1,17 @@
+<div *ngFor="let barber of barbers">
+  <div class="card mb-3" [class.active]="barber.id === selectedBarber?.id" (click)="barber.id !== undefined && setSelectedBarber(barber)">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://i.pravatar.cc/150?img=60" alt="Placeholder Image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ barber.name }}</h5>
+          <div class="star-rating">
+            <span [ngClass]="{'filled': i < 5, 'empty': i >= 5}" *ngFor="let i of [1, 2, 3, 4, 5]">&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
