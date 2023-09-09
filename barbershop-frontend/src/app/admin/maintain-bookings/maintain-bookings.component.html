@@ -2,7 +2,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">DateTime</th>
       <th scope="col">Barber</th>
       <th scope="col">Service</th>
@@ -13,8 +12,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let booking of bookings">
-      <th scope="row">{{ booking.id }}</th>
-      <th scope="row">{{ booking.dateTime }}</th>
+      <th scope="row">{{ booking.dateTime | date: 'dd.MM.yyyy HH:mm' }}</th>
       <th scope="row">{{ booking.barber.name }}</th>
       <th scope="row">{{ booking.service?.name }}</th>
       <th scope="row">{{ booking.customerName }}</th>

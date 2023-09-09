@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,7 +29,8 @@ import java.util.List;
 @Component // JwtAuthFilter
 @Log4j2
 public class TokenParser extends BasicAuthenticationFilter {
-    private String securityKey = "c3JamEI9m0kf4NUaeb0KvrbXdTCMrDdYezn7zPmwSC0op2JaHESnuOHtcpQx1+hYyce6DbnHJ0CMoW0+vrIzf3VTUIPmJg==";
+    @Value("${security.key}")
+    private String securityKey;
 
     public TokenParser(@Lazy AuthenticationManager authenticationManager) {
         super(authenticationManager);

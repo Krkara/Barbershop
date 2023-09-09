@@ -15,6 +15,4 @@ public class BarberDTO {
     private String email;
     private int phoneNumber;
     private boolean admin;
-
-    // Constructors, getters, and setters as needed
 }

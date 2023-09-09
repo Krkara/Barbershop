@@ -15,7 +15,6 @@ export class AuthService {
 
   login(loginFormData: any) {
     const response = this.httpClient.post<AuthToken>(`${this.url}/login`, loginFormData);
-    this.isLoggedIn = true;
     return response;
   }
 

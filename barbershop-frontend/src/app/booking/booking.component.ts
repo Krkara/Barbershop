@@ -3,10 +3,7 @@ import { Barber } from './../models/barber.model';
 import { Booking } from './../models/booking.model';
 import { BookingService } from './../services/booking.service';
 import { Component } from '@angular/core';
-import {
-  NgbDate,
-  NgbCalendar,
-} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-booking',
@@ -15,13 +12,14 @@ import {
 })
 export class BookingComponent {
   displayMonths = 3;
-	navigation = 'select';
-	showWeekNumbers = false;
-	outsideDays = 'visible';
+  navigation = 'select';
+  showWeekNumbers = false;
+  outsideDays = 'visible';
+  selectedDate: Date | null = null;
 
-  selectedDate: NgbDate | null = null;
+  constructor(private bookingService: BookingService) {}
 
-  onDateSelect(date: NgbDate | null) {
+  setSelectedDate(date: NgbDate | null) {
     if (date !== null) {
       // The selected date is in the 'date' parameter
       console.log('Selected Date:', date);
@@ -29,8 +27,15 @@ export class BookingComponent {
       console.log('Year:', date.year);
       console.log('Month:', date.month);
       console.log('Day:', date.day);
+      this.selectedDate = new Date(date.year, date.month, date.day);
+      console.log(this.selectedDate);
+      this.bookingService.setSelectedDate(this.selectedDate);
     } else {
       console.log('Date cleared');
     }
+  }
+
+  getSelectedDate(): Date | null {
+    return this.selectedDate;
   }
 }

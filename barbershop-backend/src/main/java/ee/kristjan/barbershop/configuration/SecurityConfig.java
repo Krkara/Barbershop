@@ -4,6 +4,7 @@ import ee.kristjan.barbershop.security.TokenParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,9 +32,9 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/signup").permitAll()
+                        .requestMatchers("/signup").hasAuthority("admin")
                         .requestMatchers("/bookings").permitAll()
-                        /*
+
                         .requestMatchers(HttpMethod.GET,"/barbers").permitAll()
                         .requestMatchers(HttpMethod.POST,"/barbers").hasAuthority("admin")
                         .requestMatchers(HttpMethod.DELETE,"/barbers").hasAuthority("admin")
@@ -48,7 +49,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/maintain-barbers").authenticated()
                         .requestMatchers(HttpMethod.GET,"/maintain-services").authenticated()
 
-                           */
                         .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

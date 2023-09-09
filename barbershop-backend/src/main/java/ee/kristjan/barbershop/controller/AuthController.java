@@ -31,11 +31,11 @@ public class AuthController {
     public ResponseEntity<AuthToken> login(@RequestBody LoginData loginData) throws RuntimeException {
         // Login
         Barber barber = barberRepository.findByEmail(loginData.getPersonalCode());
-        /*
+
         if (!encoder.matches(loginData.getPassword(),barber.getPassword())) {
             throw new RuntimeException(barber.getName());
         }
-        */
+
         return new ResponseEntity<>(tokenGenerator.getToken(barber), HttpStatus.OK);
     }
 

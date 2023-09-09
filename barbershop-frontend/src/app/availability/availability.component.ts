@@ -61,7 +61,6 @@ export class AvailabilityComponent {
 
   isDisabled(date: NgbDate) {
     
-    console.log('asdasd');
     /*
     if (!this.bookings || this.bookings.length === 0) {
       return false; // or return true, depending on your logic

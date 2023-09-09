@@ -1,7 +1,7 @@
 <div *ngFor="let barber of barbers">
   <div class="card mb-3" [class.active]="barber.id === selectedBarber?.id" (click)="barber.id !== undefined && setSelectedBarber(barber)">
     <div class="row no-gutters">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <img src="https://i.pravatar.cc/150?img=60" alt="Placeholder Image">
       </div>
       <div class="col-md-8">

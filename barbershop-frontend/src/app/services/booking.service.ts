@@ -13,6 +13,7 @@ export class BookingService {
   private url = environment.baseUrl + '/bookings';
   private selectedBarberSubject = new Subject<Barber | undefined>();
   private selectedServiceSubject = new Subject<Service | undefined>();
+  private selectedDateSubject = new Subject<Date | undefined>(); 
 
   constructor(private httpClient: HttpClient) {}
 
@@ -30,6 +31,10 @@ export class BookingService {
 
   editBookings(booking: Booking) {
     return this.httpClient.put<void>(`${this.url}/${booking.id}`, booking);
+  }
+
+  getBooking(id: number): Observable<Booking> {
+    return this.httpClient.get<Booking>(`${this.url}/${id}`);
   }
 
   getBarberBookings(barber: Barber) {
@@ -54,5 +59,13 @@ export class BookingService {
 
   getSelectedService(): Observable<Service | undefined> {
     return this.selectedServiceSubject.asObservable();
+  }
+
+  setSelectedDate(date: Date): void {
+    this.selectedDateSubject.next(date);
+  }
+
+  getSelectedDate(): Observable<Date | undefined> {
+    return this.selectedDateSubject.asObservable();
   }
 }

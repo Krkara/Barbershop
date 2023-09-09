@@ -1,1 +1,55 @@
-<p>edit-booking works!</p>
+<div class="container">
+    <h5>Edit Booking</h5>
+    <form *ngIf="booking" (ngSubmit)="handleSubmit()" #editBookingForm="ngForm">
+      <div class="form-group">
+        <label for="dateTime">Date and Time</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="dateTime"
+          [(ngModel)]="booking.dateTime"
+          name="dateTime"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="barber">Barber</label>
+        <select
+          class="form-control"
+          id="barber"
+          [(ngModel)]="booking.barber"
+          name="barber"
+          required
+        >
+          <!-- Populate the select options with barbers -->
+          <option *ngFor="let barber of barbers" [ngValue]="barber">{{ barber.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="service">Service</label>
+        <select
+          class="form-control"
+          id="service"
+          [(ngModel)]="booking.service"
+          name="service"
+          required
+        >
+          <!-- Populate the select options with services -->
+          <option *ngFor="let service of services" [ngValue]="service">{{ service.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="customerName"
+          [(ngModel)]="booking.customerName"
+          name="customerName"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </div>
+  

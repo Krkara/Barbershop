@@ -26,10 +26,10 @@ const routes: Routes = [
   { path: 'edit-booking/:id', component: EditBookingComponent },
   { path: 'edit-barber/:id', component: EditBarberComponent },
   { path: 'edit-service/:id', component: EditServiceComponent },
-  { path: 'add-barber', component: AddBarberComponent },
+  //{ path: 'add-barber', component: AddBarberComponent },
   { path: 'add-service', component: AddServiceComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'add-barber', component: SignupComponent },
   { path: 'availability', component: AvailabilityComponent },
 
 ];

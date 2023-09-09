@@ -1,7 +1,9 @@
 package ee.kristjan.barbershop.controller;
 
+import ee.kristjan.barbershop.dto.BarberDTO;
 import ee.kristjan.barbershop.entity.Barber;
 import ee.kristjan.barbershop.repository.BarberRepository;
+import ee.kristjan.barbershop.service.BarberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +13,15 @@ import java.util.List;
 @RequestMapping("/barbers")
 public class BarberController {
 
-    @Autowired BarberRepository barberRepository;
+    @Autowired
+    BarberRepository barberRepository;
+
+    @Autowired
+    BarberService barberService;
 
     @GetMapping
-    public List<Barber> getBarbers() {
-        return barberRepository.findAll();
+    public List<BarberDTO> getBarbers() {
+        return barberService.findAllBarbers();
     }
 
     @PostMapping

@@ -2,7 +2,6 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Phone number</th>
           <th scope="col">Email</th>
@@ -14,7 +13,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let barber of barbers">
-          <th scope="row">{{ barber.id }}</th>
           <td>{{ barber.name }}</td>
           <td>{{ barber.phoneNumber }}</td>
           <td>{{ barber.email }}</td>
